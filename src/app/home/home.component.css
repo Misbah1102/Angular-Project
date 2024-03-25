@@ -1,0 +1,11 @@
+  .register{
+    margin: 18%  10%  10% 40% ;
+    padding: 10px 20px 10px 20px ;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #000000;
+    color: aqua;
+    border-radius: 15px;
+  }
+ 

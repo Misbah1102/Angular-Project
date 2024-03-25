@@ -1,0 +1,120 @@
+<!-- <p>register works!</p> -->
+<body>
+
+<div class="container">
+<div class="SignUp">
+
+  <form [formGroup]="registerForm"    (ngSubmit)="onSubmit()">
+    <h1 class="h3">Please Fill in your information</h1>
+<img  class="img " src="assets/profile.jpg"alt="no">
+    <label class="photo">Upload Photo</label>
+    <input type="file" id="photo" formControlName="photo" accept="image/*" (change)="onPhotoChange($event)">
+
+
+    <div for="firstName" class="form-floating">
+      <input formControlName="fname" type="text" class="form-control" id="floatingInput"  [(ngModel)]="formdata.fName"placeholder="firstName">
+
+    </div>
+
+
+
+    <div for="lastName" class="form-floating">
+      <input formControlName="lname" type="text" class="form-control" id="floatingInput" placeholder="lastName"  [(ngModel)]="formdata.lName">
+
+    </div>
+
+    
+
+
+    <div class="form-floating">
+      <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="Email"  [(ngModel)]="formdata.email">
+
+    </div>
+
+    <div for="number" class="form-floating">
+      <input formControlName="num" type="tel" class="form-control" id="floatingInput"  [(ngModel)]="formdata.num"placeholder="8845825571">
+
+    </div>
+    
+<div class="age">
+    <label for="age">Age</label>
+    <mat-slider formControlName="age" min="0" max="100" step="1000" showTickMarks discrete [displayWith]="formatLabel"   [(ngModel)]="formdata.age">
+      <input matSliderThumb>
+    </mat-slider>
+  </div>
+    <div class="drop">
+      <select name="state" id="">
+        <option value="1">state</option>
+        <option value="2">Maharashtra</option>
+        <option value="3">Gujrat</option>
+        <option value="4">Haryana</option>
+        <option value="5">Aasam</option>
+        <option value="6">Andhra Pradesh</option>
+        <option value="7">Arunachal Pradesh</option>
+        <option value="8">Bihar</option>
+        <option value="9">Chhattisgarh</option>
+        <option value="10">Himachal Pradesh</option>
+        <option value="11">Jharkhand</option>
+        <option value="12">Karnataka</option>
+        <option value="13">Kerala</option>
+        <option value="14">Madhya Pradesh</option>
+        <option value="15">Manipur</option>
+        <option value="16">Meghalaya</option>
+        <option value="17">Mizoram</option>
+        <option value="18">Nagaland</option>
+        <option value="19">Odisha</option>
+        <option value="20">Punjab</option>
+        <option value="21">Rajasthan</option>
+        <option value="22">Sikkim</option>
+        <option value="23">Tamil Nadu</option>
+        <option value="24">Telangana</option>
+        <option value="25">Tripura</option>
+        <option value="26">Uttar Pradesh</option>
+        <option value="27">Uttarakhand	</option>
+        <option value="28">West Bengal	</option>
+        
+
+        
+      </select>
+    </div>
+    <div>
+      <select name="state" id="">
+        <option value="1">country</option>
+        <option value="2">..</option>
+        <option value="3">..</option>
+        <option value="4">..</option>
+      </select>
+    </div>
+
+    <mat-form-field>
+      <!-- <mat-label>Textarea</mat-label> -->
+      <textarea matInput placeholder="Address"></textarea>
+    </mat-form-field>
+
+<div class="tag">
+     <mat-form-field formControlName="tags" class="example-chip-list">
+      <mat-label>TAGs</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Enter Tags">
+        @for (tag of tags; track tags) {
+        <mat-chip-row (removed)="remove(tag)" [editable]="true" (edited)="edit(tag, $event)"
+          [aria-description]="'press enter to edit ' + tag.name">
+          {{tag.name}}
+          <button matChipRemove [attr.aria-label]="'remove ' + tag.name">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+        }
+        <input placeholder="New fruit..." [matChipInputFor]="chipGrid" [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)" />
+      </mat-chip-grid>
+    </mat-form-field>
+  </div>
+ 
+
+
+    <button class="registerbtn " type="submit" (click)="redir()">Register</button>
+
+  </form>
+</div>
+</div>
+</body>
