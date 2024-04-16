@@ -51,7 +51,7 @@ constructor(private formBuilder:FormBuilder, private http:HttpClient,private rou
     this.http.post<any>('http://localhost:3000/data', this.formdata)
       .subscribe(response => {
         console.log('Data saved successfully:', response);
-        // Reset the form after successful submission
+        
         this.formdata = {};
       }, error => {
         console.error('Error occurred:', error);
@@ -86,7 +86,7 @@ constructor(private formBuilder:FormBuilder, private http:HttpClient,private rou
           this.tags.push({name: value});
         }
     
-        // Clear the input value
+        
         event.chipInput!.clear();
       }
     
@@ -103,7 +103,6 @@ constructor(private formBuilder:FormBuilder, private http:HttpClient,private rou
       edit(tags: Tags, event: MatChipEditedEvent) {
         const value = event.value.trim();
     
-        // Remove fruit if it no longer has a name
         if (!value) {
           this.remove(tags);
           return;
@@ -132,7 +131,6 @@ onPhotoChange(event: any): void {
         const img = new Image();
         img.onload = () => {
           if (img.width === 310 && img.height === 325) {
-            // Resize or handle the image here if required
             this.registerForm.get('photo').setValue(file);
             this.photoError = false;
           } else {
